@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Predictive Edge — AI-powered startup success prediction system using machine learning to estimate the Probability of Success for early-stage startups.">
+    <title>The Predictive Edge — AI Startup Success Predictor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ambient Background -->
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="app-header" id="app-header">
+            <div class="header-content">
+                <div class="logo-group">
+                    <div class="logo-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <defs>
+                                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#6366f1"/>
+                                    <stop offset="100%" style="stop-color:#a855f7"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M16 2L28 8V24L16 30L4 24V8L16 2Z" fill="url(#logoGrad)" opacity="0.2"/>
+                            <path d="M16 2L28 8V24L16 30L4 24V8L16 2Z" stroke="url(#logoGrad)" stroke-width="1.5" fill="none"/>
+                            <path d="M10 18L14 22L22 12" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="logo-text">The Predictive Edge</h1>
+                        <p class="logo-tagline">AI-Powered Startup Intelligence</p>
+                    </div>
+                </div>
+                <div class="header-badge" id="model-badge">
+                    <span class="badge-dot"></span>
+                    <span class="badge-text">ML Model Active</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Input Section -->
+            <section class="input-section" id="input-section">
+                <div class="section-header">
+                    <h2>Startup Parameters</h2>
+                    <p>Enter your startup metrics to receive an AI-powered success prediction</p>
+                </div>
+
+                <form id="prediction-form" class="prediction-form">
+                    <div class="form-grid">
+
+                        <!-- Team Experience -->
+                        <div class="form-card" id="card-team">
+                            <div class="form-card-header">
+                                <div class="form-icon form-icon-purple">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="9" cy="7" r="4"/>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                    </svg>
+                                </div>
+                                <label class="form-label">Team Experience</label>
+                            </div>
+                            <p class="form-description">Rate your founding team's industry expertise</p>
+                            <div class="slider-container">
+                                <input type="range" id="team-experience" name="team_experience" min="1" max="5" step="1" value="3" class="custom-slider slider-purple">
+                                <div class="slider-labels">
+                                    <span>Novice</span>
+                                    <span class="slider-value" id="team-value">3</span>
+                                    <span>Expert</span>
+                                </div>
+                                <div class="slider-ticks">
+                                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Funding Amount -->
+                        <div class="form-card" id="card-funding">
+                            <div class="form-card-header">
+                                <div class="form-icon form-icon-green">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                    </svg>
+                                </div>
+                                <label class="form-label">Funding Amount</label>
+                            </div>
+                            <p class="form-description">Total secured funding in USD</p>
+                            <div class="input-wrapper">
+                                <span class="input-prefix">$</span>
+                                <input type="number" id="funding-amount" name="funding_amount" min="10000" max="50000000" value="1000000" step="50000" class="form-input" placeholder="e.g. 2,000,000">
+                            </div>
+                            <p class="input-hint" id="funding-display">$1,000,000</p>
+                        </div>
+
+                        <!-- Market Sentiment -->
+                        <div class="form-card" id="card-sentiment">
+                            <div class="form-card-header">
+                                <div class="form-icon form-icon-blue">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                                    </svg>
+                                </div>
+                                <label class="form-label">Market Sentiment</label>
+                            </div>
+                            <p class="form-description">Current market demand & validation score</p>
+                            <div class="slider-container">
+                                <input type="range" id="market-sentiment" name="market_sentiment" min="0" max="1" step="0.05" value="0.5" class="custom-slider slider-blue">
+                                <div class="slider-labels">
+                                    <span>Bearish</span>
+                                    <span class="slider-value" id="sentiment-value">0.50</span>
+                                    <span>Bullish</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Industry Growth Rate -->
+                        <div class="form-card" id="card-growth">
+                            <div class="form-card-header">
+                                <div class="form-icon form-icon-amber">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                        <polyline points="17 6 23 6 23 12"/>
+                                    </svg>
+                                </div>
+                                <label class="form-label">Industry Growth Rate</label>
+                            </div>
+                            <p class="form-description">Annual industry growth percentage</p>
+                            <div class="slider-container">
+                                <input type="range" id="industry-growth" name="industry_growth_rate" min="-5" max="40" step="0.5" value="12" class="custom-slider slider-amber">
+                                <div class="slider-labels">
+                                    <span>Declining</span>
+                                    <span class="slider-value" id="growth-value">12.0%</span>
+                                    <span>Booming</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="predict-btn" class="predict-btn">
+                        <span class="btn-content">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
+                            <span>Analyze Startup</span>
+                        </span>
+                        <span class="btn-loading" style="display:none;">
+                            <div class="spinner"></div>
+                            <span>Processing...</span>
+                        </span>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section hidden" id="results-section">
+                <div class="section-header">
+                    <h2>Prediction Results</h2>
+                    <p>AI-powered analysis of your startup's success probability</p>
+                </div>
+
+                <div class="results-grid">
+                    <!-- PoS Score Card -->
+                    <div class="result-card result-card-main" id="pos-card">
+                        <div class="pos-ring-container">
+                            <svg class="pos-ring" viewBox="0 0 160 160">
+                                <circle cx="80" cy="80" r="70" class="pos-ring-bg"/>
+                                <circle cx="80" cy="80" r="70" class="pos-ring-progress" id="pos-ring-progress"
+                                    stroke-dasharray="439.82" stroke-dashoffset="439.82"/>
+                            </svg>
+                            <div class="pos-ring-text">
+                                <span class="pos-score" id="pos-score">0</span>
+                                <span class="pos-label">PoS Score</span>
+                            </div>
+                        </div>
+                        <div class="pos-details">
+                            <div class="risk-badge" id="risk-badge">
+                                <span class="risk-dot"></span>
+                                <span id="risk-text">—</span>
+                            </div>
+                            <p class="prediction-label" id="prediction-label">—</p>
+                        </div>
+                    </div>
+
+                    <!-- Weakness Card -->
+                    <div class="result-card result-card-weakness" id="weakness-card">
+                        <div class="result-card-icon weakness-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3>Biggest Weakness</h3>
+                        <p class="weakness-text" id="weakness-text">—</p>
+                    </div>
+
+                    <!-- Recommendation Card -->
+                    <div class="result-card result-card-recommendation" id="recommendation-card">
+                        <div class="result-card-icon recommendation-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+                            </svg>
+                        </div>
+                        <h3>Recommendation</h3>
+                        <p class="recommendation-text" id="recommendation-text">—</p>
+                    </div>
+
+                    <!-- Feature Importance Chart -->
+                    <div class="result-card result-card-features" id="features-card">
+                        <h3>Feature Importance</h3>
+                        <div class="feature-bars" id="feature-bars">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section class="history-section hidden" id="history-section">
+                <div class="section-header">
+                    <h2>Prediction History</h2>
+                    <p>Recent analyses performed by the model</p>
+                </div>
+                <div class="history-table-wrapper">
+                    <table class="history-table" id="history-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Team</th>
+                                <th>Funding</th>
+                                <th>Sentiment</th>
+                                <th>Growth</th>
+                                <th>PoS Score</th>
+                                <th>Risk</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-body">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>© 2026 The Predictive Edge — Powered by Random Forest ML · Built by Vinit Thakkar</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

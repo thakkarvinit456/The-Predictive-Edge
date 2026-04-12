@@ -1,0 +1,15 @@
+{
+  "accuracy": 0.945,
+  "feature_importances": {
+    "team_experience": 0.6241,
+    "funding_amount": 0.1438,
+    "market_sentiment": 0.1461,
+    "industry_growth_rate": 0.0859
+  },
+  "feature_names": [
+    "team_experience",
+    "funding_amount",
+    "market_sentiment",
+    "industry_growth_rate"
+  ]
+}
