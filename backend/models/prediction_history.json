@@ -1,0 +1,46 @@
+[
+  {
+    "timestamp": "2026-04-13T00:19:43.685224",
+    "inputs": {
+      "team_experience": 4.0,
+      "funding_amount": 2010000.0,
+      "market_sentiment": 0.65,
+      "industry_growth_rate": 17.0
+    },
+    "result": {
+      "prediction": 1,
+      "pos_score": 99.2,
+      "risk_category": "Low Risk",
+      "weakness": "Insufficient startup funding",
+      "recommendation": "Pursue additional funding rounds, explore angel investors, or apply to accelerator programs.",
+      "feature_importances": {
+        "team_experience": 0.6241,
+        "funding_amount": 0.1438,
+        "market_sentiment": 0.1461,
+        "industry_growth_rate": 0.0859
+      }
+    }
+  },
+  {
+    "timestamp": "2026-04-13T00:24:46.337894",
+    "inputs": {
+      "team_experience": 3.0,
+      "funding_amount": 2010000.0,
+      "market_sentiment": 0.55,
+      "industry_growth_rate": 7.0
+    },
+    "result": {
+      "prediction": 1,
+      "pos_score": 94.1,
+      "risk_category": "Low Risk",
+      "weakness": "Slow industry growth trajectory",
+      "recommendation": "Consider pivoting to adjacent high-growth markets or developing unique competitive differentiators.",
+      "feature_importances": {
+        "team_experience": 0.6241,
+        "funding_amount": 0.1438,
+        "market_sentiment": 0.1461,
+        "industry_growth_rate": 0.0859
+      }
+    }
+  }
+]
