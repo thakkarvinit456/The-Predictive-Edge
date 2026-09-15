@@ -1,0 +1,16 @@
+﻿__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+
+backend/models/*.pkl
+backend/models/prediction_history.json
+
+~$*
+
+*.pptx
+
+*.pptx
